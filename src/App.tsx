@@ -7,16 +7,12 @@ import React, {
 } from 'react';
 
 import './App.css';
-import { GithubIcon } from './GithubIcon';
 import { randomString, waitTimeout } from './utils';
-import { defaultTheme } from './themes/default';
 import { Icon, Theme } from './themes/interface';
-import { fishermanTheme } from './themes/fisherman';
-import { jinlunTheme } from './themes/jinlun';
-import { ikunTheme } from './themes/ikun';
+import { beilijiaoqiaoTheme } from './themes/beilijiaoqiao';
 
 // 主题
-const themes = [defaultTheme, fishermanTheme, jinlunTheme, ikunTheme];
+const themes = [beilijiaoqiaoTheme];
 
 // 最大关卡
 const maxLevel = 50;
@@ -145,7 +141,7 @@ const Symbol: FC<SymbolProps> = ({ x, y, icon, isCover, status, onClick }) => {
 };
 
 const App: FC = () => {
-    const [curTheme, setCurTheme] = useState<Theme<any>>(defaultTheme);
+    const [curTheme, setCurTheme] = useState<Theme<any>>(beilijiaoqiaoTheme);
     const [scene, setScene] = useState<Scene>(makeScene(1, curTheme.icons));
     const [level, setLevel] = useState<number>(1);
     const [queue, setQueue] = useState<MySymbol[]>([]);
@@ -370,10 +366,7 @@ const App: FC = () => {
 
     return (
         <>
-            <h2>有解的羊了个羊(DEMO)</h2>
-            <h6>
-                <GithubIcon />
-            </h6>
+            <h2>鼠了个鼠</h2>
             <h3 className="flex-container flex-center">
                 主题:
                 <select
@@ -444,11 +437,7 @@ const App: FC = () => {
             {/*bgm*/}
             <button className="bgm-button" onClick={() => setBgmOn(!bgmOn)}>
                 {bgmOn ? '🔊' : '🔈'}
-                <audio
-                    ref={bgmRef}
-                    loop
-                    src={curTheme?.bgm || '/sound-disco.mp3'}
-                />
+                <audio ref={bgmRef} loop src={curTheme.bgm} />
             </button>
 
             {/*音效*/}
