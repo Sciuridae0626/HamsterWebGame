@@ -3,15 +3,15 @@ import React from 'react';
 import { Theme } from '../interface';
 import { DefaultSoundNames, defaultSounds } from '../default';
 
-// const soundUrls = import.meta.glob('./sounds/*.mp3', {
-//     import: 'default',
-//     eager: true,
-// });
+const soundUrls = import.meta.glob('./sounds/【月兮】勾指起誓.mp3', {
+    import: 'default',
+    eager: true,
+});
 
-// const sounds = Object.entries(soundUrls).map(([key, value]) => ({
-//     name: key.slice(9, -4),
-//     src: value,
-// })) as Theme<string>['sounds'];
+const sounds = Object.entries(soundUrls).map(([key, value]) => ({
+    name: key.slice(9, -4),
+    src: value,
+})) as Theme<string>['sounds'];
 
 const imagesUrls = import.meta.glob('./images/*.png', {
     import: 'default',
