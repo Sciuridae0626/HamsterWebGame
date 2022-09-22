@@ -9,10 +9,12 @@ import React, {
 import './App.css';
 import { randomString, waitTimeout } from './utils';
 import { Icon, Theme } from './themes/interface';
+import { defaultTheme } from './themes/default';
 import { beilijiaoqiaoTheme } from './themes/beilijiaoqiao';
+import { meumyTheme } from './themes/meumy';
 
 // 主题
-const themes = [beilijiaoqiaoTheme];
+const themes = [defaultTheme, beilijiaoqiaoTheme, meumyTheme];
 
 // 最大关卡
 const maxLevel = 50;
@@ -141,7 +143,7 @@ const Symbol: FC<SymbolProps> = ({ x, y, icon, isCover, status, onClick }) => {
 };
 
 const App: FC = () => {
-    const [curTheme, setCurTheme] = useState<Theme<any>>(beilijiaoqiaoTheme);
+    const [curTheme, setCurTheme] = useState<Theme<any>>(defaultTheme);
     const [scene, setScene] = useState<Scene>(makeScene(1, curTheme.icons));
     const [level, setLevel] = useState<number>(1);
     const [queue, setQueue] = useState<MySymbol[]>([]);
@@ -380,7 +382,6 @@ const App: FC = () => {
                         </option>
                     ))}
                 </select>
-                Level: {level}
             </h3>
 
             <div className="app">
@@ -420,12 +421,6 @@ const App: FC = () => {
                 </button>
                 {/*<button onClick={test}>测试</button>*/}
             </div>
-
-            <p>
-                <span id="busuanzi_container_site_pv">
-                    累计访问：<span id="busuanzi_value_site_pv"></span>次
-                </span>
-            </p>
 
             {finished && (
                 <div className="modal">
