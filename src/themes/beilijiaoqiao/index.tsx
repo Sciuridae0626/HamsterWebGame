@@ -1,17 +1,17 @@
 // 北立交桥主题
-import React from 'react';
+import bgm from './sounds/【月兮】勾指起誓.mp3';
+import soundClickUrl from '../sound-button-click.mp3';
+import soundTripleUrl from './sounds/【无前Namae】这个好诶.mp3';
 import { Theme } from '../interface';
-import { DefaultSoundNames, defaultSounds } from '../default';
 
-const soundUrls = import.meta.glob('./sounds/【月兮】勾指起誓.mp3', {
-    import: 'default',
-    eager: true,
-});
+type SoundNames =
+    | 'soundClick'
+    | 'soundTriple';
 
-const sounds = Object.entries(soundUrls).map(([key, value]) => ({
-    name: key.slice(9, -4),
-    src: value,
-})) as Theme<string>['sounds'];
+const sounds: { name: SoundNames; src: string }[] = [
+    { name: 'soundClick', src: soundClickUrl },
+    { name: 'soundTriple', src: soundTripleUrl },
+];
 
 const imagesUrls = import.meta.glob('./images/*.png', {
     import: 'default',
@@ -25,13 +25,14 @@ const images = Object.entries(imagesUrls).map(([key, value]) => ({
     content: <img src={value} alt="" />,
 }));
 
-export const beilijiaoqiaoTheme: Theme<DefaultSoundNames> = {
+export const beilijiaoqiaoTheme: Theme<SoundNames> = {
     name: '北立交桥',
+    bgm,
     icons: images.map(({ name, content }) => ({
         name,
         content,
-        clickSound: 'button-click',
-        tripleSound: 'triple',
+        clickSound: 'soundClick',
+        tripleSound: 'soundTriple',
     })),
-    sounds: defaultSounds,
+    sounds,
 };
