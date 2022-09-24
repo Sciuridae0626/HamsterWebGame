@@ -156,27 +156,27 @@ const App: FC = () => {
     const soundRefMap = useRef<Record<string, HTMLAudioElement>>({});
 
     // 第一次点击时播放bgm
-    const bgmRef = useRef<HTMLAudioElement>(null);
-    const [bgmOn, setBgmOn] = useState<boolean>(false);
-    const [once, setOnce] = useState<boolean>(false);
-    useEffect(() => {
-        if (!bgmRef.current) return;
-        if (bgmOn) {
-            bgmRef.current.volume = 0.5;
-            bgmRef.current.play();
-        } else {
-            bgmRef.current?.pause();
-        }
-    }, [bgmOn]);
+    // const bgmRef = useRef<HTMLAudioElement>(null);
+    // const [bgmOn, setBgmOn] = useState<boolean>(false);
+    // const [once, setOnce] = useState<boolean>(false);
+    // useEffect(() => {
+    //     if (!bgmRef.current) return;
+    //     if (bgmOn) {
+    //         bgmRef.current.volume = 0.5;
+    //         bgmRef.current.play();
+    //     } else {
+    //         bgmRef.current?.pause();
+    //     }
+    // }, [bgmOn]);
 
     // 主题切换
-    useEffect(() => {
-        setBgmOn(false);
-        restart();
-        setTimeout(() => {
-            setBgmOn(true);
-        }, 300);
-    }, [curTheme]);
+    // useEffect(() => {
+    //     setBgmOn(false);
+    //     restart();
+    //     setTimeout(() => {
+    //         setBgmOn(true);
+    //     }, 300);
+    // }, [curTheme]);
 
     // 队列区排序
     useEffect(() => {
@@ -293,10 +293,10 @@ const App: FC = () => {
     const clickSymbol = async (idx: number) => {
         if (finished || animating) return;
 
-        if (!once) {
-            setBgmOn(true);
-            setOnce(true);
-        }
+        // if (!once) {
+        //     setBgmOn(true);
+        //     setOnce(true);
+        // }
 
         const updateScene = scene.slice();
         const symbol = updateScene[idx];
@@ -412,10 +412,10 @@ const App: FC = () => {
             )}
 
             {/*bgm*/}
-            <button className="bgm-button" onClick={() => setBgmOn(!bgmOn)}>
+            {/* <button className="bgm-button" onClick={() => setBgmOn(!bgmOn)}>
                 {bgmOn ? '🔊' : '🔈'}
                 <audio ref={bgmRef} loop src={curTheme.bgm} />
-            </button>
+            </button> */}
 
             {/*音效*/}
             {curTheme.sounds.map((sound) => (
