@@ -31,17 +31,17 @@ type Scene = MySymbol[];
 // 8*8网格  4*4->8*8
 const makeScene: (level: number, icons: Icon[]) => Scene = (level, icons) => {
     const curLevel = Math.min(maxLevel, level);
-    const iconPool = icons.slice(0, 2 * curLevel);
+    const iconPool = icons.slice(0, 4 * curLevel);
     const offsetPool = [0, 25, -25, 50, -50].slice(0, 1 + curLevel);
 
     const scene: Scene = [];
 
     const range = [
         [2, 6],
-        [1, 6],
+        [2, 6],
         [1, 7],
-        [0, 7],
-        [0, 8],
+        [1, 7],
+        [1, 7],
     ][Math.min(4, curLevel - 1)];
 
     const randomSet = (icon: Icon) => {
@@ -353,9 +353,9 @@ const App: FC = () => {
                 return;
             }
             // 升级
-            setLevel(level + 1);
+            setLevel(level + 49);
             setQueue([]);
-            checkCover(makeScene(level + 1, curTheme.icons));
+            checkCover(makeScene(level + 49, curTheme.icons));
         } else {
             setQueue(updateQueue);
             checkCover(updateScene);
@@ -389,7 +389,7 @@ const App: FC = () => {
             </div>
             <div className="queue-container flex-container flex-center" />
             <div className="flex-container flex-between">
-                <button className="flex-grow" onClick={pop}>
+                {/* <button className="flex-grow" onClick={pop}>
                     弹出
                 </button>
                 <button className="flex-grow" onClick={undo}>
@@ -400,7 +400,7 @@ const App: FC = () => {
                 </button>
                 <button className="flex-grow" onClick={levelUp}>
                     下一关
-                </button>
+                </button> */}
                 {/*<button onClick={test}>测试</button>*/}
             </div>
 

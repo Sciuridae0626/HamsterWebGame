@@ -2,10 +2,10 @@
 <html lang="en">
     <head>
         <title>龟了个龟</title>
-        <embed src="/src/index/bgm.mp3" autostart="true" loop="true" hidden="true"></embed>
         <meta charset="UTF-8">
     </head>
     <body style="text-align: center; color: #000;">
+        <video id="bgm" controls="true" autoplay="true" name="media" loop="true" hidden="true" src="/src/index/bgm.mp3"></video>
         <h2>龟了个龟</h2>
         <div id="main">
             <img src="/src/index/龟龟跳.gif"><br>
@@ -21,7 +21,8 @@
                     font-size: 16px;"
                 onclick="
                     document.getElementById('main').style.display='none';
-                    document.getElementById('root').style.display='inline-block';">开始游戏</button>
+                    document.getElementById('root').style.display='inline-block';
+                    document.getElementById('bgm').play()">开始游戏</button>
         </div>
         <div id="root" style="display: none;"></div>
         <script type="module" src="/src/main.tsx"></script>
@@ -40,7 +41,7 @@
                 二创作者：
                 <a href="https://space.bilibili.com/37205521">@可爱的松鼠0v0</a>&emsp;
                 素材来源：
-                <a href="https://space.bilibili.com/523862573">@白神遥Haruka</a>
+                <a href="https://space.bilibili.com/477332594">@白神遥Haruka</a>
                 <a href="https://space.bilibili.com/107716290">@疚刃</a>
                 <a href="https://space.bilibili.com/13315327">@鼠标Office</a>
             </p>
