@@ -1,7 +1,7 @@
 // 鼠国主题
-import bgm from './sounds/【Bison仓鼠】勾指起誓.mp3';
+import bgm from './sounds/bgm.mp3';
 import soundClickUrl from '../sound-button-click.mp3';
-import soundTripleUrl from './sounds/【Bison仓鼠】好耶.mp3';
+import soundTripleUrl from './sounds/sound-button-triple.mp3';
 import { Theme } from '../interface';
 
 type SoundNames =
@@ -26,7 +26,7 @@ const images = Object.entries(imagesUrls).map(([key, value]) => ({
 }));
 
 export const defaultTheme: Theme<SoundNames> = {
-    name: '鼠国',
+    name: '龟了个龟',
     bgm,
     icons: images.map(({ name, content }) => ({
         name,

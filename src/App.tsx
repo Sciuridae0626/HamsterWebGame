@@ -10,11 +10,9 @@ import './App.css';
 import { randomString, waitTimeout } from './utils';
 import { Icon, Theme } from './themes/interface';
 import { defaultTheme } from './themes/default';
-import { beilijiaoqiaoTheme } from './themes/beilijiaoqiao';
-import { meumyTheme } from './themes/meumy';
 
 // 主题
-const themes = [defaultTheme, beilijiaoqiaoTheme, meumyTheme];
+const themes = [defaultTheme];
 
 // 最大关卡
 const maxLevel = 50;
@@ -368,22 +366,6 @@ const App: FC = () => {
 
     return (
         <>
-            <h2>鼠了个鼠</h2>
-            <h3 className="flex-container flex-center">
-                主题:
-                <select
-                    onChange={(e) =>
-                        setCurTheme(themes[Number(e.target.value)])
-                    }
-                >
-                    {themes.map((t, idx) => (
-                        <option key={t.name} value={idx}>
-                            {t.name}
-                        </option>
-                    ))}
-                </select>
-            </h3>
-
             <div className="app">
                 <div className="scene-container">
                     <div className="scene-inner">
